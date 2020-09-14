@@ -9,7 +9,7 @@ namespace Lab_13._3.Controllers
 {
 	public class AdminController : Controller
 	{
-		[HttpPost]
+
 		public IActionResult Index(string delete="No", long productID=0)
 		{
 			if(delete == "Yes")
@@ -19,11 +19,13 @@ namespace Lab_13._3.Controllers
 			return View(Product.Read());
 		}
 
+		[HttpPost]
 		public IActionResult Edit(long productID)
 		{
 			return View(Product.Read(productID));
 		}
 
+		[HttpPost]
 		public IActionResult Delete(long productID)
 		{
 			return View(Product.Read(productID));
