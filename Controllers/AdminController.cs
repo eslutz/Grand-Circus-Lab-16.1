@@ -9,7 +9,6 @@ namespace Lab_13._3.Controllers
 {
 	public class AdminController : Controller
 	{
-
 		public IActionResult Index(string delete="No", long productID=0)
 		{
 			if(delete == "Yes")
