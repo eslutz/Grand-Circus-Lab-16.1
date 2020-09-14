@@ -1,0 +1,17 @@
+﻿@model Product
+@{
+	ViewData["Title"] = "Delete";
+	long id = Model.ID;
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete <b>@Model.Name</b>?</h3>
+
+<form action="/Admin" method="post">
+	<input type="submit" name="delete" value="Yes" />
+	<input type="submit" name="delete" value="No" />
+	<input type="hidden" name="productID" value="@Model.ID" />
+</form>
+
+

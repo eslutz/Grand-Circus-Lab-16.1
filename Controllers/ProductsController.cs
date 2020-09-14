@@ -34,12 +34,7 @@ namespace Lab_13._3.Controllers
 
 		public IActionResult ProductInfo(int productID)
 		{
-			IDbConnection database = new SqlConnection("Server=BCKW433\\SQLEXPRESS;Database=CoffeeShop;user id=CoffeeShopUser;password=password");
-			database.Open();
-			Product product = database.QuerySingle<Product>($"select * from Product where ID = {productID}");
-			database.Close();
-
-			return View(product);
+			return View(Product.Read(productID));
 		}
 	}
 }

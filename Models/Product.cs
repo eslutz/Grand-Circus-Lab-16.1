@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Lab_13._3.Models
 {
+	[Table("Product")]
 	public class Product
 	{
+		[Key]
 		public long ID { get; set; }
 		public string Name { get; set; }
 		public string Category { get; set; }
@@ -59,7 +61,7 @@ namespace Lab_13._3.Models
 		public static void Delete(long id)
 		{
 			IDbConnection db = new SqlConnection("Server=BCKW433\\SQLEXPRESS;Database=CoffeeShop;user id=CoffeeShopUser;password=password");
-			db.Delete(new Product() { ID = -id });
+			db.Delete(new Product() { ID = id });
 		}
 	}
 }

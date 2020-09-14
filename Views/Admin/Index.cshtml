@@ -1,0 +1,22 @@
+﻿@model List<Product>
+@{
+	ViewData["Title"] = "Admin";
+}
+
+<h1>Admin</h1>
+
+<h2>Available Products</h2>
+<br />
+<h2>Select Edit or Delete for each product.</h2>
+<br />
+
+<table>
+	@foreach (Product product in Model)
+	{
+		<tr>
+			<td>@product.Name</td>
+			<td><a href="#">Edit</a></td>
+			<td><a href="/Admin/Delete?productID=@product.ID">Delete</a></td>
+		</tr>
+	}
+</table>
