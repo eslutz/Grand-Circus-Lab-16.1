@@ -5,10 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Lab_13._2.Models;
+using Lab_13._3.Models;
 using System.Text.RegularExpressions;
 
-namespace Lab_13._2.Controllers
+namespace Lab_13._3.Controllers
 {
 	public class HomeController : Controller
 	{

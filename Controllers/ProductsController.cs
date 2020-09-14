@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Dapper;
 using System.Data;
 using System.Data.SqlClient;
-using Lab_13._2.Models;
+using Lab_13._3.Models;
 
-namespace Lab_13._2.Controllers
+namespace Lab_13._3.Controllers
 {
 	public class ProductsController : Controller
 	{

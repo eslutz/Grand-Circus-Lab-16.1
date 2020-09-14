@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Lab_13._2.Models
+namespace Lab_13._3.Models
 {
 	public class TheUser
 	{
