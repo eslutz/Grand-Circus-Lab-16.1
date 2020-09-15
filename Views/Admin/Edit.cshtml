@@ -4,37 +4,7 @@
 	string price = $"{Model?.Price:C}";
 }
 
-@if (ViewBag.Message == "")
-{
-	<h1>Edit</h1>
-
-	<form action="/Admin/Edit" method="post">
-		<table>
-			<tr>
-				<td align="right"><label for="name">Product name:</label></td>
-				<td><input type="text" name="name" value="@Model.Name" required /></td>
-			</tr>
-			<tr>
-				<td align="right"><label for="category">Category:</label></td>
-				<td><input type="text" name="category" value="@Model.Category" required /></td>
-			</tr>
-			<tr>
-				<td align="right"><label for="description">Description:</label></td>
-				<td><input type="text" name="description" value="@Model.Description" required /></td>
-			</tr>
-			<tr>
-				<td align="right"><label for="price">Price:</label></td>
-				<td><input type="text" name="price" value="@Model.Price" required /></td>
-			</tr>
-		</table>
-		<input type="hidden" name="productID" value="@Model.ID" />
-		<input type="reset" />
-		<br /><br />
-		<input type="submit" name="edit" value="Save" />
-		<input type="submit" name="edit" value="Cancel" />
-	</form>
-}
-else
+@if (ViewBag.Message == "Update completed successfully!")
 {
 	<h1>@ViewBag.Message</h1>
 	<br />
@@ -60,4 +30,35 @@ else
 	</table>
 	<br />
 	<p>Back to the <a href="/Admin">Admin</a> page.</p>
+}
+else
+{
+	<h1>Edit</h1>
+	<br />
+	<h2>@Html.Raw(ViewBag.Message)</h2>
+	<form action="/Admin/Edit" method="post">
+		<table>
+			<tr>
+				<td align="right"><label for="name">Product name:</label></td>
+				<td><input type="text" name="name" value="@Model.Name" required /></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="category">Category:</label></td>
+				<td><input type="text" name="category" value="@Model.Category" required /></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="description">Description:</label></td>
+				<td><input type="text" name="description" value="@Model.Description" required /></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="price">Price:</label></td>
+				<td><input type="text" name="price" value="@Model.Price" required /></td>
+			</tr>
+		</table>
+		<input type="hidden" name="productID" value="@Model.ID" />
+		<input type="reset" />
+		<br /><br />
+		<input type="submit" name="edit" value="Save" />
+		<a href="/Admin"><input type="button" name="edit" value="Cancel" /></a>
+	</form>
 }

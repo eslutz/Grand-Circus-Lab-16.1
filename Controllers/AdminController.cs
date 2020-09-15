@@ -27,7 +27,7 @@ namespace Lab_13._3.Controllers
 			bool validUserInput = true;
 			string validInput = "";
 
-			if (!String.IsNullOrEmpty(edit) && !(validString.IsMatch(name) && validString.IsMatch(category) && validString.IsMatch(description)))
+			if (!String.IsNullOrEmpty(name) && !(validString.IsMatch(name) && validString.IsMatch(category) && validString.IsMatch(description)))
 			{
 				validInput = "Invalid Name, Cateogry, or Description.<br />Please enter only letters.";
 				validUserInput = false;
@@ -41,7 +41,7 @@ namespace Lab_13._3.Controllers
 			if (!validUserInput)
 			{
 				ViewBag.Message = validInput;
-				return View();
+				return View(Product.Read(productID));
 			}
 			else if (edit == "Save")
 			{
