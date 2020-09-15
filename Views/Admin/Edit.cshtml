@@ -1,32 +1,63 @@
 ﻿@model Product
 @{
 	ViewData["Title"] = "Edit";
+	string price = $"{Model?.Price:C}";
 }
 
-<h1>Edit</h1>
+@if (ViewBag.Message == "")
+{
+	<h1>Edit</h1>
 
-<form action="/Admin" method="post">
+	<form action="/Admin/Edit" method="post">
+		<table>
+			<tr>
+				<td align="right"><label for="name">Product name:</label></td>
+				<td><input type="text" name="name" value="@Model.Name" required /></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="category">Category:</label></td>
+				<td><input type="text" name="category" value="@Model.Category" required /></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="description">Description:</label></td>
+				<td><input type="text" name="description" value="@Model.Description" required /></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="price">Price:</label></td>
+				<td><input type="text" name="price" value="@Model.Price" required /></td>
+			</tr>
+		</table>
+		<input type="hidden" name="productID" value="@Model.ID" />
+		<input type="reset" />
+		<br /><br />
+		<input type="submit" name="edit" value="Save" />
+		<input type="submit" name="edit" value="Cancel" />
+	</form>
+}
+else
+{
+	<h1>@ViewBag.Message</h1>
+	<br />
+	<h2>Updated Product Info</h2>
+	<br />
 	<table>
 		<tr>
-			<td align="right"><label for="name">Product name:</label></td>
-			<td><input type="text" name="name" placeholder="@Model.Name" /></td>
+			<td><b>Name</b></td>
+			<td>@Model.Name</td>
 		</tr>
 		<tr>
-			<td align="right"><label for="category">Category:</label></td>
-			<td><input type="text" name="category" placeholder="@Model.Category" /></td>
+			<td><b>Category</b></td>
+			<td>@Model.Category</td>
 		</tr>
 		<tr>
-			<td align="right"><label for="description">Description:</label></td>
-			<td><input type="text" name="description" placeholder="@Model.Description" /></td>
+			<td><b>Description</b></td>
+			<td>@Model.Description</td>
 		</tr>
 		<tr>
-			<td align="right"><label for="price">Price:</label></td>
-			<td><input type="text" name="price" placeholder="@Model.Price" /></td>
+			<td><b>Price</b></td>
+			<td>@price</td>
 		</tr>
 	</table>
-	<input type="hidden" name="productID" value="@Model.ID" />
-	<input type="reset" />
-	<br /><br />
-	<input type="submit" name="edit" value="Save" />
-	<input type="submit" name="edit" value="Cancel" />
-</form>
+	<br />
+	<p>Back to the <a href="/Admin">Admin</a> page.</p>
+}
