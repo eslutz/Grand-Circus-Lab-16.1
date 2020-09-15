@@ -1,7 +1,39 @@
 ﻿
 @{
-    ViewData["Title"] = "New";
+	ViewData["Title"] = "New Product";
 }
 
-<h1>New</h1>
-
+@if (ViewBag.Message == "Product successfully added!")
+{
+	<h1>@ViewBag.Message</h1>
+}
+else
+{
+	<h1>Add a New Product</h1>
+	<br />
+	<h2>@Html.Raw(ViewBag.Message)</h2>
+	<form action="/Admin/New" method="post">
+		<table>
+			<tr>
+				<td align="right"><label for="name">Product name:</label></td>
+				<td><input type="text" name="name" required /></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="category">Category:</label></td>
+				<td><input type="text" name="category" required /></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="description">Description:</label></td>
+				<td><input type="text" name="description" required /></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="price">Price:</label></td>
+				<td><input type="text" name="price" required /></td>
+			</tr>
+		</table>
+		<input type="reset" />
+		<br /><br />
+		<input type="submit" name="edit" value="Save" />
+		<a href="/Admin"><input type="button" name="edit" value="Cancel" /></a>
+	</form>
+}
