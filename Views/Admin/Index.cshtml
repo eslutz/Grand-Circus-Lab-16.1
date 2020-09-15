@@ -1,6 +1,7 @@
 ﻿@model List<Product>
 @{
 	ViewData["Title"] = "Admin";
+	int itemNumber = 1;
 }
 
 <h1>Admin</h1>
@@ -11,6 +12,7 @@
 	@foreach (Product product in Model)
 	{
 		<tr>
+			<td>@itemNumber. </td>
 			<td>@product.Name</td>
 			<td>
 				<form action="/Admin/Edit" method="post">
@@ -25,6 +27,7 @@
 				</form>
 			</td>
 		</tr>
+		itemNumber++;
 	}
 </table>
 <br />
