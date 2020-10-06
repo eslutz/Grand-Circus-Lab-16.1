@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Lab_13._3.Models;
+using Lab_16._1.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Lab_13._3.Controllers
+namespace Lab_16._1.Controllers
 {
 	public class AdminController : Controller
 	{

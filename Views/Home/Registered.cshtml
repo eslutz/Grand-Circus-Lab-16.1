@@ -1,4 +1,4 @@
-﻿@model Lab_13._3.Models.TheUser
+﻿@model Lab_16._1.Models.TheUser
 @{
 	ViewData["Title"] = "Registered";
 	string genderStatement = "";
@@ -9,7 +9,7 @@
 @Html.Raw(ViewBag.Message)
 
 
-@if (Model.Gender == "yes")
+@if (Model?.Gender == "yes")
 {
 	genderStatement = "you gendered person";
 }

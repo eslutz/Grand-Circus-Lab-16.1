@@ -3,20 +3,64 @@
 	ViewData["Title"] = "Register";
 }
 
+<script>
+	function SubmitToMe() {
+		let validinput = true;
+
+		//firstname validation
+		let firstname = document.getElementById("fname");
+		let fnameblock = document.getElementById("fnameinvalid");
+		if (firstname.value.length < 2) {
+			fnameblock.innerHTML = "First name must be at least two letters.";
+			validinput = false;
+		}
+		else {
+			fnameblock.innerHTML = "";
+		}
+
+		//lastname validation
+		let lastname = document.getElementById("lname");
+		let lnameblock = document.getElementById("lnameinvalid");
+		if (lastname.value.length < 2) {
+			lnameblock.innerHTML = "Last name must be at least two letters.";
+			validinput = false;
+		}
+		else {
+			lnameblock.innerHTML = "";
+		}
+
+		//email validation
+		let validemail = /^.{2,30}@@\w{2,10}\.\w{2,3}$/ig;
+		let email = document.getElementById("email");
+		let emailblock = document.getElementById("emailinvalid");
+		if (validemail.test(email.value)) {
+			emailblock.innerHTML = "You must enter an email of at least two characters, then an @@, then at least two characters, then a period, then at least two characters";
+			validinput = false;
+		}
+		else {
+			emailblock.innerHTML = "";
+		}
+
+		return validinput;
+	}
+</script>
+
 <h2>@ViewBag.Message</h2>
 <br />
 <h3>You better fill out the form if you want coffee!</h3>
 <br />
-<form action="/Home/Registered" method="post">
+<form action="/Home/Registered" method="post" onsubmit="return SubmitToMe();">
 	<fieldset name="registration">
 		<table>
 			<tr>
 				<td align="right"><label for="firstname">First name:</label></td>
-				<td><input type="text" name="firstname" placeholder="Your" required /></td>
+				<td><input type="text" name="firstname" placeholder="Your" id="fname" required /></td>
+				<td id="fnameinvalid"></td>
 			</tr>
 			<tr>
 				<td align="right"><label for="lastname">Last name:</label></td>
-				<td><input type="text" name="lastname" placeholder="Name" required /></td>
+				<td><input type="text" name="lastname" placeholder="Name" id="lname" required /></td>
+				<td id="lnameinvalid"></td>
 			</tr>
 			<tr>
 				<td align="right"><label for="gender">Gender:</label></td>
@@ -41,7 +85,8 @@
 			</tr>
 			<tr>
 				<td align="right"><label for="email">Email:</label></td>
-				<td><input type="email" name="email" placeholder="youremail@coffee.com" required /></td>
+				<td><input type="email" name="email" placeholder="youremail@coffee.com" id="email" required /></td>
+				<td id="emailinvalid"></td>
 			</tr>
 			<tr>
 				<td align="right"><label for="phonenumber">Phone Number:</label></td>
