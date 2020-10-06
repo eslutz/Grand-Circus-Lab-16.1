@@ -33,7 +33,7 @@
 		let validemail = /^.{2,30}@@\w{2,10}\.\w{2,3}$/ig;
 		let email = document.getElementById("email");
 		let emailblock = document.getElementById("emailinvalid");
-		if (validemail.test(email.value)) {
+		if (!validemail.test(email.value)) {
 			emailblock.innerHTML = "You must enter an email of at least two characters, then an @@, then at least two characters, then a period, then at least two characters";
 			validinput = false;
 		}
