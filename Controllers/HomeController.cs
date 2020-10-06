@@ -35,8 +35,8 @@ namespace Lab_16._1.Controllers
 		[HttpPost]
 		public IActionResult Registered(string firstname, string lastname, string gender, DateTime birthday, string email, string phonenumber, string state, string password, string repassword)
 		{
-			Regex validName = new Regex(@"^[A-Z][A-Za-z]{0,29}$");
-			Regex validEmail = new Regex(@"^.{5,30}@\w{5,10}\.\w{2,3}$");
+			Regex validName = new Regex(@"^[A-Za-z]{2,30}$");
+			Regex validEmail = new Regex(@"^.{2,30}@\w{2,10}\.\w{2,3}$");
 			Regex validPhonenumber = new Regex(@"^\({0,1}\d{3}\){0,1}[-.]\d{3}[-.]\d{4}$");
 			bool passwordMatch = (password == repassword);
 			bool allgood = passwordMatch && (validName.IsMatch(firstname) && validName.IsMatch(lastname) && validEmail.IsMatch(email) && validPhonenumber.IsMatch(phonenumber));
