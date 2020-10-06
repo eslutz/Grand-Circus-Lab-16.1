@@ -13,9 +13,11 @@
 		if (firstname.value.length < 2) {
 			fnameblock.innerHTML = "First name must be at least two letters.";
 			validinput = false;
+			firstname.className = "invalid";
 		}
 		else {
 			fnameblock.innerHTML = "";
+			firstname.className = "";
 		}
 
 		//lastname validation
@@ -24,9 +26,11 @@
 		if (lastname.value.length < 2) {
 			lnameblock.innerHTML = "Last name must be at least two letters.";
 			validinput = false;
+			lastname.className = "invalid";
 		}
 		else {
 			lnameblock.innerHTML = "";
+			lastname.className = "";
 		}
 
 		//email validation
@@ -36,9 +40,11 @@
 		if (!validemail.test(email.value)) {
 			emailblock.innerHTML = "You must enter an email of at least two characters, then an @@, then at least two characters, then a period, then at least two characters";
 			validinput = false;
+			email.className = "invalid";
 		}
 		else {
 			emailblock.innerHTML = "";
+			email.className = "";
 		}
 
 		//password validation
@@ -48,9 +54,11 @@
 		if (!validpassword.test(password.value)) {
 			passwordblock.innerHTML = "Password must contain one upper and one lower case letter, a number, and a symbol.";
 			validinput = false;
+			password.className = "invalid";
 		}
 		else {
 			passwordblock.innerHTML = "";
+			password.className = "";
 		}
 
 		//password match validation
@@ -59,9 +67,12 @@
 		if (password.value != repassword.value) {
 			passwordmatchblock.innerHTML = "Passwords do not match.";
 			validinput = false;
+			password.className = "invalid";
+			repassword.className = "invalid";
 		}
 		else {
 			passwordmatchblock.innerHTML = "";
+			repassword.className = "";
 		}
 
 		return validinput;
@@ -77,12 +88,12 @@
 		<table>
 			<tr>
 				<td align="right"><label for="firstname">First name:</label></td>
-				<td><input type="text" name="firstname" placeholder="Your" id="fname" required /></td>
+				<td><input type="text" name="firstname" placeholder="Your" id="fname" class="" required /></td>
 				<td id="fnameinvalid"></td>
 			</tr>
 			<tr>
 				<td align="right"><label for="lastname">Last name:</label></td>
-				<td><input type="text" name="lastname" placeholder="Name" id="lname" required /></td>
+				<td><input type="text" name="lastname" placeholder="Name" id="lname" class="" required /></td>
 				<td id="lnameinvalid"></td>
 			</tr>
 			<tr>
@@ -108,7 +119,7 @@
 			</tr>
 			<tr>
 				<td align="right"><label for="email">Email:</label></td>
-				<td><input type="email" name="email" placeholder="youremail@coffee.com" id="email" required /></td>
+				<td><input type="email" name="email" placeholder="youremail@coffee.com" id="email" class="" required /></td>
 				<td id="emailinvalid"></td>
 			</tr>
 			<tr>
@@ -175,12 +186,12 @@
 			</tr>
 			<tr>
 				<td align="right"><label for="password">Password:</label></td>
-				<td><input type="password" name="password" placeholder="password" id="password" required /></td>
+				<td><input type="password" name="password" placeholder="password" id="password" class="" required /></td>
 				<td id="passwordinvalid"></td>
 			</tr>
 			<tr>
 				<td align="right"><label for="repassword">Re-enter Password:</label></td>
-				<td><input type="password" name="repassword" placeholder="password" id="passwordmatch" required /></td>
+				<td><input type="password" name="repassword" placeholder="password" id="passwordmatch" class="" required /></td>
 				<td id="passwordmatchinvalid"></td>
 			</tr>
 		</table>
