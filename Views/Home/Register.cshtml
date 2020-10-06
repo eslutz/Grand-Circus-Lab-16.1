@@ -42,7 +42,7 @@
 		}
 
 		//password validation
-		let validpassword = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[@@$!%*#?&])[A-Za-z\d@@$!%*#?&]{4,20}$/ig;
+		let validpassword = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[@@$!%*#?&])[A-Za-z\d@@$!%*#?&]{4,20}$/g;
 		let password = document.getElementById("password");
 		let passwordblock = document.getElementById("passwordinvalid");
 		if (!validpassword.test(password.value)) {
