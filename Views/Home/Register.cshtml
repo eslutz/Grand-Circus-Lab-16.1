@@ -30,7 +30,7 @@
 		}
 
 		//email validation
-		let validemail = /^.{2,30}@@\w{2,10}\.\w{2,3}$/ig;
+		const validemail = /^.{2,30}@@\w{2,10}\.\w{2,3}$/ig;
 		let email = document.getElementById("email");
 		let emailblock = document.getElementById("emailinvalid");
 		if (!validemail.test(email.value)) {
@@ -42,7 +42,7 @@
 		}
 
 		//password validation
-		let validpassword = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[@@$!%*#?&])[A-Za-z\d@@$!%*#?&]{4,20}$/g;
+		const validpassword = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[@@$!%*#?&])[A-Za-z\d@@$!%*#?&]{4,20}$/g;
 		let password = document.getElementById("password");
 		let passwordblock = document.getElementById("passwordinvalid");
 		if (!validpassword.test(password.value)) {
