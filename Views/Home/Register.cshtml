@@ -41,6 +41,29 @@
 			emailblock.innerHTML = "";
 		}
 
+		//password validation
+		let validpassword = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[@@$!%*#?&])[A-Za-z\d@@$!%*#?&]{4,20}$/ig;
+		let password = document.getElementById("password");
+		let passwordblock = document.getElementById("passwordinvalid");
+		if (!validpassword.test(password.value)) {
+			passwordblock.innerHTML = "Password must contain one upper and one lower case letter, a number, and a symbol.";
+			validinput = false;
+		}
+		else {
+			passwordblock.innerHTML = "";
+		}
+
+		//password match validation
+		let repassword = document.getElementById("passwordmatch");
+		let passwordmatchblock = document.getElementById("passwordmatchinvalid");
+		if (password.value != repassword.value) {
+			passwordmatchblock.innerHTML = "Passwords do not match.";
+			validinput = false;
+		}
+		else {
+			passwordmatchblock.innerHTML = "";
+		}
+
 		return validinput;
 	}
 </script>
@@ -152,11 +175,13 @@
 			</tr>
 			<tr>
 				<td align="right"><label for="password">Password:</label></td>
-				<td><input type="password" name="password" placeholder="password" required /></td>
+				<td><input type="password" name="password" placeholder="password" id="password" required /></td>
+				<td id="passwordinvalid"></td>
 			</tr>
 			<tr>
 				<td align="right"><label for="repassword">Re-enter Password:</label></td>
-				<td><input type="password" name="repassword" placeholder="password" required /></td>
+				<td><input type="password" name="repassword" placeholder="password" id="passwordmatch" required /></td>
+				<td id="passwordmatchinvalid"></td>
 			</tr>
 		</table>
 	</fieldset>
